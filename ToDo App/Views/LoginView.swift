@@ -8,44 +8,41 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = LoginViewViewModel()
     var body: some View {
         //A view that displays a root view and enables you to present/navigate additional views over the root view.
         NavigationView {
             VStack{
                 //Header
-                HeaderView()
-                
+                HeaderView(title: "ToDo List", subTitle: "Login", angle: 15, background: .blue, offSetValue: -100,height: 300,paddingTop: 30)
+
                 //Login form
                 VStack{
-                    TextField("Email Address",text: $email)
+                    TextField("Email Address",text: $viewModel.email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                    //disable auto cap for first letter
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
                         
-                    SecureField("Password",text: $password)
+                    SecureField("Password",text: $viewModel.password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled()
                         
-                    Button  {
-                        //action
+                    CustomButton(btnTitle: "Login", btnBgColor: .blue){
+                        //closure body
                     }
-                label: {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 8)
-                                .frame(height: 55)
-                                .foregroundColor(.blue)
-                            Text("Login")
-                                .foregroundColor(.white)
-                                .bold()
-                        }
-                    }.padding(.top,20)
+                   // btn
+                   .padding(.top,20)
                 }.padding([.leading,.trailing],16)
+                   
                 Spacer()
                 //Create an account
                 VStack(spacing: 8){
                     Text("Don't have an account?")
                       //  .padding(.bottom,8)
                     
-                    NavigationLink("Create an Account",destination: RegistrationView())
+                    NavigationLink("Create an Account",destination: RegisterView())
                         
                         
                 }

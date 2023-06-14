@@ -18,7 +18,9 @@
 		027089A72A3233C000406EF2 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 027089A62A3233C000406EF2 /* FirebaseFirestoreSwift */; };
 		027089AC2A32391300406EF2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027089AB2A32391300406EF2 /* LoginView.swift */; };
 		027089AE2A323C8700406EF2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027089AD2A323C8700406EF2 /* HeaderView.swift */; };
-		027089B02A32441600406EF2 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027089AF2A32441600406EF2 /* RegistrationView.swift */; };
+		027089B32A3A2F1800406EF2 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027089B22A3A2F1800406EF2 /* RegisterView.swift */; };
+		027089B52A3A3D4400406EF2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027089B42A3A3D4400406EF2 /* CustomButton.swift */; };
+		027089B82A3A41B700406EF2 /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027089B72A3A41B700406EF2 /* LoginViewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +33,9 @@
 		0270899F2A31143200406EF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		027089AB2A32391300406EF2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		027089AD2A323C8700406EF2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		027089AF2A32441600406EF2 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		027089B22A3A2F1800406EF2 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		027089B42A3A3D4400406EF2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		027089B72A3A41B700406EF2 /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		0270898E2A310CAC00406EF2 /* ToDo App */ = {
 			isa = PBXGroup;
 			children = (
+				027089B62A3A418C00406EF2 /* ViewModel */,
 				027089AA2A3238CB00406EF2 /* Views */,
 				0270898F2A310CAC00406EF2 /* ToDo_AppApp.swift */,
 				027089912A310CAC00406EF2 /* MainView.swift */,
@@ -89,11 +94,28 @@
 		027089AA2A3238CB00406EF2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				027089B12A3A2EFE00406EF2 /* SignUp */,
 				027089AB2A32391300406EF2 /* LoginView.swift */,
 				027089AD2A323C8700406EF2 /* HeaderView.swift */,
-				027089AF2A32441600406EF2 /* RegistrationView.swift */,
+				027089B42A3A3D4400406EF2 /* CustomButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		027089B12A3A2EFE00406EF2 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				027089B22A3A2F1800406EF2 /* RegisterView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		027089B62A3A418C00406EF2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				027089B72A3A41B700406EF2 /* LoginViewViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +199,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				027089AC2A32391300406EF2 /* LoginView.swift in Sources */,
+				027089B82A3A41B700406EF2 /* LoginViewViewModel.swift in Sources */,
 				027089922A310CAC00406EF2 /* MainView.swift in Sources */,
+				027089B52A3A3D4400406EF2 /* CustomButton.swift in Sources */,
 				027089902A310CAC00406EF2 /* ToDo_AppApp.swift in Sources */,
+				027089B32A3A2F1800406EF2 /* RegisterView.swift in Sources */,
 				027089AE2A323C8700406EF2 /* HeaderView.swift in Sources */,
-				027089B02A32441600406EF2 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
