@@ -9,9 +9,23 @@ import SwiftUI
 
 
 struct MainView: View {
+    @StateObject var viewmodel = MainViewModel()
     var body: some View {
-        
-        LoginView()
+        if(!viewmodel.currentUserId.isEmpty && viewmodel.isUserSignedIn){
+            //Bottom navigation view by use of TabView
+            TabView{
+                HomeView()
+                    .tabItem(){
+                        Label("Home", systemImage: "house")
+                    }
+                ProfileView()
+                    .tabItem(){
+                        Label("Profile", systemImage: "person.circle")
+                    }
+            }
+        }else{
+            LoginView()
+        }
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = LoginViewViewModel()
+    
     var body: some View {
         //A view that displays a root view and enables you to present/navigate additional views over the root view.
         NavigationView {
@@ -18,6 +19,11 @@ struct LoginView: View {
 
                 //Login form
                 VStack{
+                    if(!viewModel.errorMessage.isEmpty){
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(.red)
+                   }
+                    
                     TextField("Email Address",text: $viewModel.email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     //disable auto cap for first letter
@@ -30,11 +36,18 @@ struct LoginView: View {
                         .autocorrectionDisabled()
                         
                     CustomButton(btnTitle: "Login", btnBgColor: .blue){
-                        //closure body
+                        viewModel.loginUser(){ success, authData in
+                            if(success){
+                                
+                            }
+                        }
+                        
                     }
                    // btn
                    .padding(.top,20)
-                }.padding([.leading,.trailing],16)
+                }
+                .padding([.leading,.trailing],16)
+                .offset(y: -50)
                    
                 Spacer()
                 //Create an account
@@ -46,12 +59,15 @@ struct LoginView: View {
                         
                         
                 }
+                .padding(.bottom,50)
                 Spacer()
             }
 
         }
        
     }
+    
+  
 }
 
 struct LoginView_Previews: PreviewProvider {

@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State var name = ""
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = ReisterViewModel()
     var body: some View {
         
         NavigationView {
@@ -19,22 +17,26 @@ struct RegisterView: View {
                 HeaderView(title: "Register", subTitle: "Start organizing todos", angle: -15, background: .orange, offSetValue: -150,height: 400,paddingTop: 80)
                 //Register form
                 VStack{
-                    TextField("Full name",text: $name)
+                    if(!viewModel.errorMessage.isEmpty){
+                        Text(viewModel.errorMessage)
+                            .foregroundColor(.red)
+                    }
+                    TextField("Full name",text: $viewModel.name)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     //disable auto cap for first letter
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
-                    TextField("Email Address",text: $email)
+                    TextField("Email Address",text: $viewModel.email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none)
-                    SecureField("Create Password",text: $password)
+                    SecureField("Create Password",text: $viewModel.password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     Spacer()
                         
                     CustomButton(btnTitle: "Create Account", btnBgColor: .orange){
-                        //closure body
+                        viewModel.registerUser()
                     }
                         .padding(.top,20)
                 }.padding([.leading,.trailing],16) //this create a padding left and right for this vertical stack view.
